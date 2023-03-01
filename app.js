@@ -10,7 +10,7 @@ require("dotenv").config();
 connectionDB();
 
 // import routes
-const resigterRoute = require("./routes/register");
+const authRoutes = require("./routes/auth");
 
 // app middleware
 app.use(express.json());
@@ -19,7 +19,7 @@ app.use(morgan("dev"));
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 // middleware routes
-app.use("/api", resigterRoute);
+app.use("/api", authRoutes);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
