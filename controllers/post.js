@@ -68,3 +68,14 @@ exports.editPost = async (req, res) => {
     return res.json(postDoc);
   });
 };
+
+exports.deletePost = async (req, res) => {
+  const { id } = req.params;
+  await Post.deleteOne({ _id: id })
+    .then((result) => {
+      return res.status(200).json(result);
+    })
+    .catch((error) => {
+      return res.status(500).json(error);
+    });
+};
