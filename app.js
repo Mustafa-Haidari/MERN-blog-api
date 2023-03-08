@@ -17,7 +17,7 @@ const postRoutes = require("./routes/post");
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 // middleware routes
