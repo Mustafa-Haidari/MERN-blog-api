@@ -48,6 +48,8 @@ exports.login = async (req, res) => {
           res.cookie("token", token).json({
             id: user._id,
             email: user.email,
+            firstname: user.firstname,
+            lastname: user.lastname,
           });
         }
       );
